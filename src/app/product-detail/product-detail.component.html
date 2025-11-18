@@ -1,0 +1,69 @@
+<div class="container mx-auto px-4 py-8">
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="text-center text-2xl font-semibold py-10">
+    Loading...
+  </div>
+
+  <div *ngIf="!loading" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+    <!-- LEFT — Product Image -->
+    <div>
+      <img 
+        [src]="product.image_path"
+        alt="{{ product.name }}"
+        class="w-full h-[380px] object-cover rounded-xl shadow-lg"
+      />
+
+      <div class="mt-4 flex gap-3">
+        <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg w-full hover:bg-yellow-700">
+          Buy Now
+        </button>
+        <button class="border border-gray-400 px-6 py-3 rounded-lg w-full hover:bg-gray-100">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT — Product Details -->
+    <div>
+      <h1 class="text-3xl font-bold">{{ product.name }}</h1>
+
+      <p class="text-gray-600 mt-3 text-lg leading-relaxed">
+        {{ product.description }}
+      </p>
+
+      <!-- Price Section -->
+      <div class="mt-6">
+        <p class="text-green-600 text-3xl font-bold">₹{{ product.price }}</p>
+
+        <p class="line-through text-gray-400 mt-1" *ngIf="product.discount_price">
+          ₹{{ product.discount_price }}
+        </p>
+      </div>
+
+      <!-- Specifications -->
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold mb-3">Specifications</h3>
+
+        <ul class="text-gray-700 space-y-2">
+          <li><strong>Wood Type:</strong> {{ product.wood_type }}</li>
+          <li><strong>Finish:</strong> {{ product.finish }}</li>
+
+          <li *ngIf="product.dimensions">
+            <strong>Dimensions:</strong>
+            {{ product.dimensions.width }}W × 
+            {{ product.dimensions.depth }}D × 
+            {{ product.dimensions.height }}H
+          </li>
+
+          <li><strong>Weight:</strong> {{ product.weight }} kg</li>
+          <li><strong>Stock:</strong> {{ product.stock }}</li>
+          <li><strong>Category:</strong> {{ product.category }}</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>

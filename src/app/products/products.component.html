@@ -5,7 +5,6 @@
     Loading...
 </div>
 <div *ngIf="!loading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
     <div *ngFor="let data of products"
         class="border rounded-xl p-4 shadow-md hover:shadow-lg transition cursor-pointer bg-white flex flex-col">
         <div class="w-full h-52 overflow-hidden rounded-lg">
@@ -26,8 +25,8 @@
                 ₹{{ data.price }}
             </p>
         </div>
-        <button
-            class="mt-auto w-full bg-black text-white py-2 text-center rounded-lg font-medium hover:bg-gray-900 transition">
+        <button [routerLink]="['/products', data.sku]"
+            class="mt-auto w-full bg-black text-white py-2 text-center rounded-lg font-medium hover:bg-gray-900 transition cursor-pointer">
             Buy Now
         </button>
     </div>

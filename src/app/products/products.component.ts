@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule], // ✅ ADD RouterModule
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
 
@@ -17,8 +18,12 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts() {
     this.productService.getProducts().subscribe((res: any) => {
-      this.products = res?.data || [];
+      this.products = res.data;
       this.loading = false;
     });
   }
