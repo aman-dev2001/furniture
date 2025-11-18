@@ -1,13 +1,10 @@
 <div class="container mx-auto px-4 py-8">
-
-  <!-- Loader -->
   <div *ngIf="loading" class="text-center text-2xl font-semibold py-10">
     Loading...
   </div>
 
   <div *ngIf="!loading" class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-    <!-- LEFT — Product Image -->
     <div>
       <img 
         [src]="product.image_path"
@@ -24,16 +21,12 @@
         </button>
       </div>
     </div>
-
-    <!-- RIGHT — Product Details -->
     <div>
       <h1 class="text-3xl font-bold">{{ product.name }}</h1>
 
       <p class="text-gray-600 mt-3 text-lg leading-relaxed">
         {{ product.description }}
       </p>
-
-      <!-- Price Section -->
       <div class="mt-6">
         <p class="text-green-600 text-3xl font-bold">₹{{ product.price }}</p>
 
@@ -41,8 +34,6 @@
           ₹{{ product.discount_price }}
         </p>
       </div>
-
-      <!-- Specifications -->
       <div class="mt-8">
         <h3 class="text-xl font-semibold mb-3">Specifications</h3>
 
@@ -62,8 +53,6 @@
           <li><strong>Category:</strong> {{ product.category }}</li>
         </ul>
       </div>
-
     </div>
-
   </div>
 </div>

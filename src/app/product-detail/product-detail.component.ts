@@ -14,14 +14,14 @@ export class ProductDetailComponent implements OnInit {
   product: any = null;
   loading = true;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.http.get(`https://furniture-api.fly.dev/v1/products/${id}`)
       .subscribe((res: any) => {
-        this.product = res.data;   // ✔ FIXED
+        this.product = res.data; 
         this.loading = false;
       });
   }
