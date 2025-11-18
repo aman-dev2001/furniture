@@ -1,0 +1,34 @@
+<h2 class="text-2xl font-bold mb-6">Products</h2>
+
+<!-- Loader -->
+<div *ngIf="loading" class="text-lg font-semibold text-center py-10">
+    Loading...
+</div>
+<div *ngIf="!loading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <div *ngFor="let data of products"
+        class="border rounded-xl p-4 shadow-md hover:shadow-lg transition cursor-pointer bg-white flex flex-col">
+        <div class="w-full h-52 overflow-hidden rounded-lg">
+            <img [src]="data.image_path" alt="{{ data.name }}"
+                class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+        </div>
+        <h3 class="text-lg font-semibold mt-3">
+            {{ data.name }}
+        </h3>
+        <p class="text-gray-600 text-sm line-clamp-3 mt-1 mb-1">
+            {{ data.description }}
+        </p>
+        <div class="mt-2">
+            <p class="text-sm line-through text-gray-500 mb-1" *ngIf="data.discount_price">
+                ₹{{ data.discount_price }}
+            </p>
+            <p class="font-bold text-xl text-green-600 mb-2">
+                ₹{{ data.price }}
+            </p>
+        </div>
+        <button
+            class="mt-auto w-full bg-black text-white py-2 text-center rounded-lg font-medium hover:bg-gray-900 transition">
+            Buy Now
+        </button>
+    </div>
+</div>
