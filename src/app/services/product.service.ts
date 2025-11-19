@@ -6,11 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-
   private apiUrl = 'https://furniture-api.fly.dev/v1/products';
-
   constructor(private http: HttpClient) {}
-
   getProducts(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
