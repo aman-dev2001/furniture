@@ -2,16 +2,10 @@
   <div *ngIf="loading" class="text-center text-2xl font-semibold py-10">
     Loading...
   </div>
-
   <div *ngIf="!loading" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
     <div>
-      <img 
-        [src]="product.image_path"
-        alt="{{ product.name }}"
-        class="w-full h-[380px] object-cover rounded-xl shadow-lg"
-      />
-
+      <img [src]="product.image_path" alt="{{ product.name }}"
+        class="w-full h-[380px] object-cover rounded-xl shadow-lg" />
       <div class="mt-4 flex gap-3">
         <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg w-full hover:bg-yellow-700">
           Buy Now
@@ -23,7 +17,6 @@
     </div>
     <div>
       <h1 class="text-3xl font-bold">{{ product.name }}</h1>
-
       <p class="text-gray-600 mt-3 text-lg leading-relaxed">
         {{ product.description }}
       </p>
@@ -40,14 +33,12 @@
         <ul class="text-gray-700 space-y-2">
           <li><strong>Wood Type:</strong> {{ product.wood_type }}</li>
           <li><strong>Finish:</strong> {{ product.finish }}</li>
-
           <li *ngIf="product.dimensions">
             <strong>Dimensions:</strong>
-            {{ product.dimensions.width }}W × 
-            {{ product.dimensions.depth }}D × 
+            {{ product.dimensions.width }}W ×
+            {{ product.dimensions.depth }}D ×
             {{ product.dimensions.height }}H
           </li>
-
           <li><strong>Weight:</strong> {{ product.weight }} kg</li>
           <li><strong>Stock:</strong> {{ product.stock }}</li>
           <li><strong>Category:</strong> {{ product.category }}</li>
